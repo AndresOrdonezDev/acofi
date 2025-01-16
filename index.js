@@ -1,10 +1,19 @@
-// server.js
-const express = require('express');
-const app = express();
-require('dotenv').config();
+import express from 'express'
+import dotenv from "dotenv";
+import colors from "colors";
 
-// Middleware para manejar datos en formato JSON
+import consecutiveRoute from './routes/consecutiveRoute.js'
+
+const app = express();
+
+
+// Middleware
 app.use(express.json());
+
+
+// Use the rutes to CRUD consecutive
+app.use('/api/consecutive', consecutiveRoute);
+
 
 // Ruta base de prueba
 app.get('/', (req, res) => {
