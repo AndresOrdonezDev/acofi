@@ -1,6 +1,8 @@
-// config/db.js
-import mysql from 'mysql'
-// Configura el pool de conexiones a MySQL
+import mysql from "mysql";
+import colors from "colors";
+
+let pool;
+
 export const db = async () => {
   if (!pool) {
     pool = mysql.createPool({
